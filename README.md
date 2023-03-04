@@ -1,18 +1,49 @@
-# Vue 3 + TypeScript + Vite
+# Rickpédia
+Rickpédia é uma enciclopédia online para a série de televisão animada "Rick and Morty". Utilizando a API GraphQL oficial da série, o projeto visa coletar informações sobre personagens, episódios, locais e muito mais, tudo em um só lugar. O projeto é open source, permitindo que desenvolvedores de todo o mundo contribuam e melhorem o projeto.
 
-This template should help get you started developing with Vue 3 and TypeScript in Vite. The template uses Vue 3 `<script setup>` SFCs, check out the [script setup docs](https://v3.vuejs.org/api/sfc-script-setup.html#sfc-script-setup) to learn more.
+## Funcionalidades
+ - [ ] Buscar personagens por nome
+ - [ ] Listar personagens por página
+ - [ ] Buscar episódios por nome
+ - [ ] Listar episódios por página
+ - [ ] Buscar locais por nome
+ - [ ] Listar locais por página
+ - [ ] Exibir detalhes de personagens
+ - [ ] Exibir detalhes de episódios
+ - [ ] Exibir detalhes de locais
 
-## Recommended IDE Setup
+## Pré-requisitos
+Para rodar o projeto em sua máquina, você precisará ter o Node.js instalado. Além disso, é recomendado que você tenha um editor de código, como o Visual Studio Code.
 
-- [VS Code](https://code.visualstudio.com/) + [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (and disable Vetur) + [TypeScript Vue Plugin (Volar)](https://marketplace.visualstudio.com/items?itemName=Vue.vscode-typescript-vue-plugin).
+## Como rodar o projeto
+Clone o repositório para a sua máquina utilizando o comando:
+```bash
+git clone https://github.com/mayconliborio/rickpedia.git
+```
 
-## Type Support For `.vue` Imports in TS
+Acesse a pasta do projeto e instale as dependências utilizando o comando:
+```bash
+npm install
+```
 
-TypeScript cannot handle type information for `.vue` imports by default, so we replace the `tsc` CLI with `vue-tsc` for type checking. In editors, we need [TypeScript Vue Plugin (Volar)](https://marketplace.visualstudio.com/items?itemName=Vue.vscode-typescript-vue-plugin) to make the TypeScript language service aware of `.vue` types.
+Para iniciar o projeto, utilize o comando:
+```bash
+npm start
+```
 
-If the standalone TypeScript plugin doesn't feel fast enough to you, Volar has also implemented a [Take Over Mode](https://github.com/johnsoncodehk/volar/discussions/471#discussioncomment-1361669) that is more performant. You can enable it by the following steps:
+Acesse o projeto em seu navegador através do endereço:
+```
+http://localhost:3000
+```
 
-1. Disable the built-in TypeScript Extension
-   1. Run `Extensions: Show Built-in Extensions` from VSCode's command palette
-   2. Find `TypeScript and JavaScript Language Features`, right click and select `Disable (Workspace)`
-2. Reload the VSCode window by running `Developer: Reload Window` from the command palette.
+## Tecnologias utilizadas
+- Vue 3
+- Typescript
+- Quasar
+- GraphQl
+
+## Contribuindo
+Contribuições são sempre bem-vindas! Sinta-se à vontade para abrir uma issue caso encontre algum bug ou tenha alguma sugestão de melhoria. Caso queira contribuir diretamente com o código, abra um Pull Request e irei avaliar a sua contribuição.
+
+## Licença
+Este projeto está licenciado sob a MIT License - veja o arquivo LICENSE para mais detalhes.
