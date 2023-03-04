@@ -1,5 +1,6 @@
 {
   "compilerOptions": {
+    "esModuleInterop": true,
     "baseUrl": ".",
     "paths": {
       "@/*": ["./src/*"]
@@ -7,9 +8,10 @@
     "lib": ["esnext", "dom", "dom.iterable"],
     "target": "esnext",
     "module": "esnext",
-
-    "moduleResolution": "node",
-
+    "types": [
+      "vite/client"
+    ],
+    "moduleResolution": "node"
   },
   "include": ["./src/**/*.ts", "./src/**/*.tsx", "./src/**/*.vue"],
   "exclude": ["./node_modules", "./dist"]
