@@ -1,9 +1,9 @@
 
 import { createRouter, createWebHistory } from 'vue-router';
-import FirstPage from '../views/FirstPage.vue';
+import CharacterList from '../views/CharacterList.vue';
 
 const routes = [
-  { path: '/', component: FirstPage },
+  { path: '/', component: CharacterList },
   // TODO:  Create NotFound view
   // { path: '/:pathMatch(.*)', component: NotFound}
 ];
