@@ -33,7 +33,7 @@ npm start
 
 Acesse o projeto em seu navegador através do endereço:
 ```
-http://localhost:3000
+http://localhost:5174
 ```
 
 ## Tecnologias utilizadas
