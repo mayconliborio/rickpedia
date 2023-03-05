@@ -32,7 +32,6 @@ export default defineConfig({
     include: [
       'vue',
       'vue-router',
-      '@vueuse/core',
     ],
   },
 })
