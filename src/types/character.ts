@@ -29,7 +29,6 @@ export interface Pagination {
     count: number;
     pages: number;
     next: number;
-    prev: number;
 }
 
 export interface CharacterData {
