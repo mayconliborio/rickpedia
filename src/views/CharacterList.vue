@@ -58,7 +58,7 @@ async function getCharacters(page: number = 1): Promise<void> {
       <Button label="Filter" @click="getCharacters()"></Button>
     </div>
 
-    <CardCharacterList :characters="characters" @card-click="$route"></CardCharacterList>
+    <CardCharacterList :characters="characters"></CardCharacterList>
 
     <Button v-if="showMore" label="Show more" @click="getCharacters(pagination.next)"/>
   </div>
