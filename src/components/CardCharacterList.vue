@@ -4,7 +4,7 @@
         class="card-item"
         v-for="character in characters"
         :character="character"
-        @card-click="getCharacterDetails(character.id)"
+        @click="getCharacterDetails(character.id)"
     ></CardCharacter>
   </div>
 </template>
