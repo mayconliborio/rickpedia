@@ -17,6 +17,4 @@ jobs:
       - name: Install Dependencies
         run: yarn install
       - name: Build
-        run: |
-          yarn build
-          exit 1 
+        run: yarn build
