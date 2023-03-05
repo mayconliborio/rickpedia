@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import {Character, CharacterData, Pagination} from "@/types/character";
+import {Character, CharactersData, Pagination} from "@/types/character";
 import {GET_CHARACTERS_CARD_DATA} from '@/graphql/queries/characters';
 import {computed, onMounted, ref} from "vue";
 import client from "../graphql/client";
@@ -26,7 +26,7 @@ async function getCharacters(page: number = 1): Promise<void> {
     nameFilter: nameFilter.value
   }
 
-  const data: CharacterData = await client.request(GET_CHARACTERS_CARD_DATA, variables);
+  const data: CharactersData = await client.request(GET_CHARACTERS_CARD_DATA, variables);
 
   const {info, results} = data.characters
 
@@ -80,6 +80,3 @@ async function getCharacters(page: number = 1): Promise<void> {
   max-width: 40%;
 }
 </style>
-
-
-

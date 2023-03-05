@@ -2,7 +2,7 @@ import {gql} from "graphql-request";
 
 
 export const GET_CHARACTERS_CARD_DATA = gql`
-    query GetCharacters($page: Int!, $nameFilter: String) {
+    query getCharacters($page: Int!, $nameFilter: String) {
         characters(page: $page, filter: { name: $nameFilter}) {
             info {
                 count
@@ -20,8 +20,8 @@ export const GET_CHARACTERS_CARD_DATA = gql`
 `;
 
 export const GET_CHARACTER_DETAILS = gql`
-    query GetCharacters($ids: [ID!]!) {
-        charactersByIds(ids: $ids) {
+    query getCharacter($id: ID!) {
+        character(id: $id) {
             id
             name
             status
@@ -32,6 +32,12 @@ export const GET_CHARACTER_DETAILS = gql`
                 name
                 type
                 dimension
+            }
+            episode {
+                id
+                name
+                episode
+                air_date
             }
             location {
                 name

@@ -1,3 +1,9 @@
+type Episode = {
+    id: number;
+    name?: string;
+    episode?: string;
+    air_date?: string;
+}
 export interface Character {
     id: number;
     name?: string;
@@ -14,7 +20,7 @@ export interface Character {
         url?: string;
     };
     image?: string;
-    episode?: string[];
+    episode?: Episode[];
     url?: string;
     created?: string;
 }
@@ -33,13 +39,13 @@ export interface Pagination {
     current?: number;
 }
 
-export interface CharacterData {
+export interface CharactersData {
     characters: {
         info?: Pagination;
         results: Character[];
     };
 }
 
-export interface CharactersByIdsData {
-    charactersByIds: Character[];
+export interface CharacterData {
+    character: Character;
 }
