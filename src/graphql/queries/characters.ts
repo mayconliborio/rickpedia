@@ -10,6 +10,7 @@ export const GET_CHARACTERS_CARD_DATA = gql`
                 next
             }
             results {
+                id
                 name
                 species
                 image

@@ -4,6 +4,7 @@
         class="card-item"
         v-for="character in characters"
         :character="character"
+        @card-click="getCharacterDetails(character.id)"
     ></CardCharacter>
   </div>
 </template>
@@ -11,12 +12,17 @@
 <script setup lang="ts">
 import { CharacterCard} from "@/types/character";
 import CardCharacter from "@/components/CardCharacter.vue";
+import router from "@/router/router";
 
 interface CharacterList {
   characters: CharacterCard[]
 }
 
 defineProps<CharacterList>()
+
+function getCharacterDetails(id: number) {
+  router.push({name: 'CharacterDetails', params: {id}})
+}
 
 </script>
 
