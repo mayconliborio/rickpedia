@@ -50,8 +50,7 @@ async function getCharacters(page: number = 1): Promise<void> {
 </script>
 
 <template>
-  <div class="center">
-    <img class="logo" src="src/assets/image/logo.png" alt="Logo da série de televisão Rick and Morty">
+    <img class="logo" src="/src/assets/image/logo.png" alt="Logo da série de televisão Rick and Morty">
 
     <div class="q-gutter-md" style="max-width: 70%">
       <q-input v-model="nameFilter" label="Filter by name..."/>
@@ -61,19 +60,9 @@ async function getCharacters(page: number = 1): Promise<void> {
     <CardCharacterList :characters="characters"></CardCharacterList>
 
     <Button v-if="showMore" label="Show more" @click="getCharacters(pagination.next)"/>
-  </div>
 </template>
 
 <style>
-.center {
-  display: flex;
-  align-items: center;
-  flex-direction: column;
-  width: 100%;
-  margin-bottom: 100px;
-  justify-content: center;
-}
-
 .logo {
   margin-top: 100px;
   margin-bottom: 100px;

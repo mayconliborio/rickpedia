@@ -18,8 +18,7 @@ defineProps<InfoBoxProps>()
 
 <style scoped>
 .info-box {
-  font-family: 'Roboto', sans-serif;
-  font-style: normal;
+  width: 100%;
   padding: 9px 0 12px;
   margin-left: 16px;
   border-bottom: 1px solid rgba(33, 33, 33, 0.08);
