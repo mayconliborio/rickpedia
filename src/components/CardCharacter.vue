@@ -6,11 +6,14 @@ interface CardCharacterProps {
 
 defineProps<CardCharacterProps>()
 
+function altImg(name: string) {
+  return `Imagem de ${name}, personagem da série de televisão Rick and Morty`
+}
+
 </script>
 <template>
   <q-card class="my-card">
-    <img :src="character.image" alt="random-image">
-
+    <img :src="character.image" :alt="altImg(character.image)"/>
     <q-card-section class="my-card-header">
       <div class="title">{{ character.name }}</div>
       <div class="specie">{{ character.species }}</div>
