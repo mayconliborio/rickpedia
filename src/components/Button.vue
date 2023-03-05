@@ -12,14 +12,4 @@ defineProps<ButtonProps>()
 </script>
 
 <style lang="scss">
-    .button {
-      background-color: $cor-fundo;
-      color: $cor-texto;
-      border: 1px solid $cor-texto;
-      margin: 10px;
-      font-weight: 700;
-      font-size: 18px;
-      padding: 10px 10px;
-      border-radius: 4px;
-    }
 </style>

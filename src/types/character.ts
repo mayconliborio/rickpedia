@@ -20,6 +20,7 @@ export interface Character {
 }
 
 export interface CharacterCard {
+    id: number;
     image: string;
     name: string;
     species: string;
@@ -29,7 +30,7 @@ export interface Pagination {
     count: number;
     pages: number;
     next: number;
-    prev: number;
+    current: number;
 }
 
 export interface CharacterData {

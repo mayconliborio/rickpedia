@@ -5,12 +5,16 @@ interface CardCharacterProps {
 }
 
 defineProps<CardCharacterProps>()
+const emit = defineEmits(['card-click'])
+
+function altImg(name: string) {
+  return `Imagem de ${name}, personagem da série de televisão Rick and Morty`
+}
 
 </script>
 <template>
-  <q-card class="my-card">
-    <img :src="character.image" alt="random-image">
-
+  <q-card class="my-card" @click="emit('card-click', character)">
+    <img :src="character.image" :alt="altImg(character.image)"/>
     <q-card-section class="my-card-header">
       <div class="title">{{ character.name }}</div>
       <div class="specie">{{ character.species }}</div>
@@ -29,11 +33,7 @@ img {
 .my-card {
   overflow: hidden;
   background: #FFFFFF;
-  /* 2 dp */
-
-  box-shadow: 0 1px 5px rgba(0, 0, 0, 0.2), 0 3px 4px rgba(0, 0, 0, 0.12), 0 2px 4px rgba(0, 0, 0, 0.14);
   border-radius: 4px;
-
   max-width: 250px;
   margin-top: 15px;
 }
