@@ -6,6 +6,9 @@
         :character="character"
         @click="getCharacterDetails(character.id)"
     ></CardCharacter>
+    <div v-if="characters.length === 0">
+      <span class="not-found-message">No character found in this dimension!</span>
+    </div>
   </div>
 </template>
 

@@ -9,20 +9,20 @@
 
 <style scoped lang="scss">
 .background {
-  max-height: 600px;
-  max-width: 600px;
+  max-height: 700px;
+  max-width: 700px;
   height: calc(100%);
   display: flex;
   justify-content: center;
   align-items: center;
   position: relative;
   width: 50%;
-  animation: expandBox 1.5s ease-in-out;
+  animation: expandBox 0.5s linear;
 }
+
 .portal-loading {
   width: 100%;
-  transform: scale(1.2);
-  animation: girar 3s linear infinite;
+  animation: girar 2s linear infinite;
 }
 
 @keyframes expandBox {
@@ -36,10 +36,10 @@
 
 @keyframes girar {
   from {
-    transform: rotate(0deg);
+    transform: rotate(-60deg);
   }
   to {
-    transform: rotate(360deg);
+    transform: rotate(300deg);
   }
 }
 </style>

@@ -14,10 +14,10 @@
       <router-view></router-view>
     </div>
     <div class="footer">
-
-      <p>Desenvolvido por Maycon Liborio - <a target="_blank" style="text-decoration: underline; color: rgb(76,119,255);" href="https://github.com/mayconliborio">Github</a></p>
-
-
+      <p>Developed by Maycon Liborio -
+        <a target="_blank" href="https://github.com/mayconliborio">Github</a>
+        - <a target="_blank" href="https://www.linkedin.com/in/mayconliborio/">Linkedin</a>
+      </p>
     </div>
   </div>
 </template>
@@ -76,7 +76,7 @@ p {
   display: flex;
   width: 80%;
   align-items: center;
-  padding: 0 16px;
+  padding: 0;
   justify-content: space-between;
 }
 
@@ -84,5 +84,13 @@ p {
   font-size: 18px;
   line-height: 21px;
   font-weight: 700;
+  color: black;
+  text-decoration: none;
+}
+
+@media screen and (max-width: 400px) {
+  .content, .navbar-content {
+    width: 90%;
+  }
 }
 </style>
