@@ -18,4 +18,4 @@ RUN yarn build
 EXPOSE 8080
 
 # comando de inicialização
-CMD [ "yarn", "start" ]
+CMD [ "yarn", "start", "--host" ]
