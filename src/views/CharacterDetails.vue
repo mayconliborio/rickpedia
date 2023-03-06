@@ -2,7 +2,7 @@
   <LoadingPortal v-if="loading"></LoadingPortal>
   <div v-if="!loading && currentCharacter" class="character-detail suavization-animation">
     <div class="go-back-box">
-      <Button flat label="GO BACK"/>
+      <Button flat label="GO BACK" @click="router.back()"/>
     </div>
     <AvatarCharacter :image="currentCharacter.image" :name="currentCharacter.name"/>
     <div class="row">
