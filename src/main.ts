@@ -5,7 +5,9 @@ import { Quasar } from 'quasar'
 import router from './router/router'
 import App from './App.vue'
 import 'quasar/dist/quasar.css'
+import dotenv from 'dotenv'
 
+dotenv.config()
 createApp(App)
     .use(router)
     .use(Quasar, {plugins: {}})
