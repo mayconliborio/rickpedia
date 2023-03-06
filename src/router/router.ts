@@ -1,6 +1,7 @@
 import {createRouter, createWebHistory, RouteRecordRaw} from 'vue-router';
 import CharacterList from '../views/CharacterList.vue';
 import CharacterDetails from "@/views/CharacterDetails.vue";
+import PageNotFound from "@/views/PageNotFound.vue";
 
 const routes: RouteRecordRaw[] = [
     {
@@ -16,9 +17,12 @@ const routes: RouteRecordRaw[] = [
         path: '/characters/:id',
         component: CharacterDetails,
         name: 'CharacterDetails',
+    },
+    {
+        path: '/:catchAll(.*)',
+        name: 'PageNotFound',
+        component: PageNotFound
     }
-    // TODO:  Create NotFound view
-    // { path: '/:pathMatch(.*)', component: NotFound}
 ];
 
 const router = createRouter({
