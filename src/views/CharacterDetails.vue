@@ -1,11 +1,23 @@
 <template>
   <LoadingPortal v-if="loading"></LoadingPortal>
-  <div v-else class="character-detail suavization-animation">
+  <div v-if="!loading && currentCharacter" class="character-detail suavization-animation">
+    <div class="go-back-box">
+      <Button flat label="GO BACK"/>
+    </div>
     <AvatarCharacter :image="currentCharacter.image" :name="currentCharacter.name"/>
     <div class="row">
       <InfoList name="Informations" :items="informationList"/>
       <InfoList name="Episodes" scrollable :items="episodeList"/>
     </div>
+  </div>
+  <div v-if="!loading && !currentCharacter" class="column"
+       style="margin: 30px 0; justify-content: center; align-items: center">
+    <span class="not-found-message">No character found in this dimension!</span>
+    <div class="portal-animation">
+      <img class="portal-loading" src="/src/assets/image/portal.png" width="400" alt="">
+    </div>
+    <Button style="margin: 0; width: 100%" label="Go to another dimension"
+            @click="router.push({name: 'CharacterList'})"></Button>
   </div>
 </template>
 
@@ -14,18 +26,23 @@ import {GET_CHARACTER_DETAILS} from "@/graphql/queries/characters";
 import {computed, onMounted, ref} from "vue";
 import {Character, CharacterData} from "@/types/character";
 import client from "@/graphql/client";
-import {useRoute} from "vue-router";
+import {useRoute, useRouter} from "vue-router";
 import AvatarCharacter from "@/components/AvatarCharacter.vue";
 import InfoList from "@/components/InfoList.vue";
 import LoadingPortal from "@/components/LoadingPortal.vue";
+import Button from "@/components/Button.vue";
 
 const loading = ref(true)
-
+const router = useRouter()
 const currentCharacter = ref<Character>(null)
 const episodeList = computed(() => {
-  return currentCharacter.value.episode.map((ep) => {
-    return {title: ep.episode, subtitle: ep.name, date: ep.air_date}
-  })
+  if (currentCharacter.value) {
+    return currentCharacter.value.episode.map((ep) => {
+      return {title: ep.episode, subtitle: ep.name, date: ep.air_date}
+    })
+  }
+
+  return []
 })
 const informationList = computed(() => {
   return [
@@ -61,12 +78,19 @@ onMounted(async () => {
   const variables = {
     id: route.params.id
   }
+  const data = ref<CharacterData>();
 
-  const data: CharacterData = await client.request(GET_CHARACTER_DETAILS, variables);
-
-  if(data?.character) {
-    currentCharacter.value = data.character
+  try {
+    data.value = await client.request(GET_CHARACTER_DETAILS, variables);
+  } catch (e) {
+    console.error(e)
   }
+
+  if (data.value?.character) {
+    currentCharacter.value = data.value.character
+  }
+
+  console.log(data.value)
 
   setTimeout(() => {
     loading.value = false
@@ -93,5 +117,41 @@ onMounted(async () => {
   .row {
     flex-direction: column;
   }
+}
+
+.portal-animation {
+  max-height: 700px;
+  max-width: 700px;
+  height: calc(100%);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  width: 50%;
+}
+
+.portal-loading {
+  width: 400px;
+  animation: girar 2s linear infinite;
+}
+
+@keyframes girar {
+  from {
+    transform: rotate(-60deg);
+  }
+  to {
+    transform: rotate(300deg);
+  }
+}
+
+.go-back-box {
+  display: flex;
+  width: 100%;
+  justify-content: flex-start;
+  align-items: center;
+  font-family: Karla, sans-serif;
+  font-weight: 600;
+  font-size: 18px;
+  line-height: 21px;
 }
 </style>
