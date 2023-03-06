@@ -7,19 +7,22 @@
 <script setup lang="ts">
 </script>
 
-<style scoped>
+<style scoped lang="scss">
 .background {
+  max-height: 600px;
+  max-width: 600px;
+  height: calc(100%);
   display: flex;
   justify-content: center;
   align-items: center;
   position: relative;
   width: 50%;
-  height: 100%;
-  animation: expandBox 3s ease-in-out infinite;
+  animation: expandBox 1.5s ease-in-out;
 }
 .portal-loading {
   width: 100%;
-  animation: girar 3s linear infinite, fadeInOut 2s ease-in-out infinite;
+  transform: scale(1.2);
+  animation: girar 3s linear infinite;
 }
 
 @keyframes expandBox {
@@ -27,20 +30,7 @@
     transform: scale(0.1);
   }
   100% {
-    transform: scale(2);
-    position: relative;
-  }
-}
-
-@keyframes fadeInOut {
-  0% {
-    opacity: 0;
-  }
-  60% {
-    opacity: 1;
-  }
-  100% {
-    opacity: 0;
+    transform: scale(1);
   }
 }
 

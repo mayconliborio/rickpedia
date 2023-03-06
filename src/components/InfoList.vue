@@ -25,13 +25,18 @@ interface ListInfoProps {
 }
 
 defineProps<ListInfoProps>()
-
 </script>
 
 <style scoped>
 .col {
   padding: 0 15px;
   margin-top: 42px;
+}
+
+@media screen and (max-width: 500px) {
+  .col {
+    padding: 0;
+  }
 }
 
 .list-name {
@@ -42,7 +47,6 @@ defineProps<ListInfoProps>()
   color: #8E8E93;
   margin-bottom: 36px;
 }
-
 
 .scroll-box {
   height: 400px;

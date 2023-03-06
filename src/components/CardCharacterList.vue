@@ -1,5 +1,5 @@
 <template>
-  <div class="q-pa-md row items-start q-gutter-md card-list">
+  <div class="row items-start card-list">
     <CardCharacter
         class="card-item"
         v-for="character in characters"
