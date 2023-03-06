@@ -85,6 +85,7 @@ p {
   line-height: 21px;
   font-weight: 700;
   color: black;
+  font-family: Karla, sans-serif;
   text-decoration: none;
 }
 
