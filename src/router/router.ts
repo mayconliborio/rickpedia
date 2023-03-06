@@ -1,6 +1,6 @@
 import {createRouter, createWebHistory, RouteRecordRaw} from 'vue-router';
 import CharacterList from '../views/CharacterList.vue';
-import CharacterDetails from "@/components/CharacterDetails.vue";
+import CharacterDetails from "@/views/CharacterDetails.vue";
 
 const routes: RouteRecordRaw[] = [
     {

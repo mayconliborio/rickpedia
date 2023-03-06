@@ -23,7 +23,6 @@ defineProps<CharacterList>()
 function getCharacterDetails(id: number) {
   router.push({name: 'CharacterDetails', params: {id}})
 }
-
 </script>
 
 <style scoped>
@@ -33,10 +32,11 @@ function getCharacterDetails(id: number) {
   justify-content: center;
 }
 .card-item {
-  margin: 40px;
+  margin: 20px;
   transition: 0.5s;
 }
 .card-item:hover {
+  cursor: pointer;
   transform: scale(1.05);
   transition: 0.3s;
 }
