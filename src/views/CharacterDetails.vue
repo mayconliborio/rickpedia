@@ -1,13 +1,12 @@
 <template>
-  <div v-if="currentCharacter && !loading" class="character-detail suavization-animation">
+  <LoadingPortal v-if="loading"></LoadingPortal>
+  <div v-else class="character-detail suavization-animation">
     <AvatarCharacter :image="currentCharacter.image" :name="currentCharacter.name"/>
-
     <div class="row">
       <InfoList name="Informations" :items="informationList"/>
       <InfoList name="Episodes" scrollable :items="episodeList"/>
     </div>
   </div>
-  <LoadingPortal v-else></LoadingPortal>
 </template>
 
 <script setup lang="ts">
@@ -20,16 +19,14 @@ import AvatarCharacter from "@/components/AvatarCharacter.vue";
 import InfoList from "@/components/InfoList.vue";
 import LoadingPortal from "@/components/LoadingPortal.vue";
 
-const loading = ref(false)
+const loading = ref(true)
 
 const currentCharacter = ref<Character>(null)
-
 const episodeList = computed(() => {
   return currentCharacter.value.episode.map((ep) => {
     return {title: ep.episode, subtitle: ep.name, date: ep.air_date}
   })
 })
-
 const informationList = computed(() => {
   return [
     {
@@ -60,7 +57,6 @@ const informationList = computed(() => {
 })
 
 onMounted(async () => {
-  loading.value = true;
   const route = useRoute()
   const variables = {
     id: route.params.id
@@ -68,7 +64,9 @@ onMounted(async () => {
 
   const data: CharacterData = await client.request(GET_CHARACTER_DETAILS, variables);
 
-  currentCharacter.value = data.character
+  if(data?.character) {
+    currentCharacter.value = data.character
+  }
 
   setTimeout(() => {
     loading.value = false
@@ -88,7 +86,7 @@ onMounted(async () => {
   flex-direction: column;
   width: 100%;
   min-height: 100vh;
-  margin: 100px 0;
+  margin: 0;
 }
 
 @media screen and (max-width: 750px) {
