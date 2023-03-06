@@ -9,6 +9,7 @@
     "target": "esnext",
     "module": "esnext",
     "types": [
+      "node",
       "vite/client"
     ],
     "moduleResolution": "node"

@@ -4,6 +4,20 @@ on:
     branches:
       - main
 jobs:
+  copy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Copiar variáveis de ambiente
+        run: cp .env.example .env
+
+  edit:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Editar variáveis de ambiente
+        env:
+          BASE_URL: ${{ secrets.BASE_URL }}
+        run: sed -i 's|BASE_URL=.*|BASE_URL=${{ env.BASE_URL }}|g' .env
+
   build:
     runs-on: ubuntu-latest
     steps:
