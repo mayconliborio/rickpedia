@@ -22,9 +22,6 @@ function altImg(name: string) {
 </template>
 
 <style lang="scss" scoped>
-* {
-  font-family: Roboto, sans-serif;
-}
 img {
   width: 100%;
 }
@@ -33,12 +30,16 @@ img {
   overflow: hidden;
   background: #FFFFFF;
   border-radius: 4px;
-  max-width: 250px;
+  max-width: 300px;
   margin-top: 15px;
 }
 
 .my-card-header {
-  padding: 12px 16px;
+  padding: 12px 0 12px 16px;
+}
+
+.my-card:hover .my-card-header {
+  background-color: #f7f7f7;
 }
 
 .name {

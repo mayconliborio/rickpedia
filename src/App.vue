@@ -16,6 +16,7 @@
   width: 100%;
   flex-direction: row;
   justify-content: center;
+  min-height: 100vh;
 }
 .content {
   display: flex;
@@ -24,5 +25,4 @@
   width: 80%;
   justify-content: center;
 }
-
 </style>
