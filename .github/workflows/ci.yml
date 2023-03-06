@@ -8,7 +8,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Copiar variáveis de ambiente
-        run: cp .env.example .env
+        run: cp src/.env.example src/.env
 
   edit:
     runs-on: ubuntu-latest
