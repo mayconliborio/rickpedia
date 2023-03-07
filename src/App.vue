@@ -1,13 +1,16 @@
 <script setup lang="ts">
+import {useRouter} from "vue-router";
+
+const router = useRouter()
 </script>
 
 <template>
   <div class="background suavization-animation">
     <div class="navbar">
       <div class="navbar-content">
-        <a class="navbar-item" href="/characters"><img style="padding: 6px 0;" src="/src/assets/icons/rickpedia.svg"
-                                                          alt="rickpedia icon"></a>
-        <a class="navbar-item" href="/characters">Characters</a>
+        <a class="navbar-item" href=""><img style="padding: 6px 0;" src="/src/assets/icons/rickpedia.svg"
+                                                          alt="Icone Rickepedia"></a>
+        <a class="navbar-item" href="#" @click="router.push({name: 'CharacterList'})">Characters</a>
       </div>
     </div>
     <div class="content column">

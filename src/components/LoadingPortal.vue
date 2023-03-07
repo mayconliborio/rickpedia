@@ -1,6 +1,6 @@
 <template>
   <div class="background">
-    <img class="portal-loading"  src="/src/assets/image/portal.png" alt="portal loading">
+    <img class="portal-loading"  src="/src/assets/image/portal.png" alt="Portal loading">
   </div>
 </template>
 

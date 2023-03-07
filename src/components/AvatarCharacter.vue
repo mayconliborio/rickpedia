@@ -1,7 +1,7 @@
 <template>
     <div class="character-avatar-box">
       <img class="character-avatar-image" :src="image"
-           :alt="`${name}, personagem da série Rick and Morty`">
+           :alt="`${name}, personagem da série de televisão Rick and Morty`">
     </div>
     <h2 class="character-name"> {{ name }} </h2>
 </template>
