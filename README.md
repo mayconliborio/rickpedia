@@ -1,5 +1,5 @@
-# Rickpédia
-Rickpédia é uma enciclopédia online para a série de televisão animada "Rick and Morty". Utilizando a API GraphQL oficial da série, o projeto visa coletar informações sobre personagens, episódios, locais e muito mais, tudo em um só lugar. O projeto é open source, permitindo que desenvolvedores de todo o mundo contribuam e melhorem o projeto.
+# Rickpedia
+Rickpedia é uma enciclopédia online para a série de televisão animada "Rick and Morty". Utilizando a API GraphQL oficial da série, o projeto visa coletar informações sobre personagens, episódios, locais e muito mais, tudo em um só lugar. O projeto é open source, permitindo que desenvolvedores de todo o mundo contribuam e melhorem o projeto.
 
 ## Funcionalidades
  - [x] Buscar personagens por nome
@@ -8,7 +8,7 @@ Rickpédia é uma enciclopédia online para a série de televisão animada "Rick
  - [ ] Listar episódios por página
  - [ ] Buscar locais por nome
  - [ ] Listar locais por página
- - [ ] Exibir detalhes de personagens
+ - [x] Exibir detalhes de personagens
  - [ ] Exibir detalhes de episódios
  - [ ] Exibir detalhes de locais
 
