@@ -7,7 +7,7 @@ export default defineConfig({
 
   build: {
     rollupOptions: {
-      external: ['graphql', 'src/assets/image/logo.png']
+      external: ['graphql', 'graphql-tag']
     },
     chunkSizeWarningLimit: 1000000,
   },
