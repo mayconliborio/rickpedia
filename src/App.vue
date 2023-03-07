@@ -9,7 +9,7 @@ const router = useRouter()
     <div class="navbar">
       <div class="navbar-content">
         <a class="navbar-item" href=""><img style="padding: 6px 0;" src="/src/assets/icons/rickpedia.svg"
-                                                          alt="rickpedia icon"></a>
+                                                          alt="Icone Rickepedia"></a>
         <a class="navbar-item" href="#" @click="router.push({name: 'CharacterList'})">Characters</a>
       </div>
     </div>
