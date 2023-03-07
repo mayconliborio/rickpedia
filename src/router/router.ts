@@ -26,7 +26,7 @@ const routes: RouteRecordRaw[] = [
 ];
 
 const router = createRouter({
-    history: createWebHistory('https://mayconliborio.com.br'),
+    history: createWebHistory(),
     routes
 });
 

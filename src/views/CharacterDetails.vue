@@ -24,7 +24,7 @@
 <script setup lang="ts">
 import {GET_CHARACTER_DETAILS} from "@/graphql/queries/characters";
 import {computed, onMounted, ref} from "vue";
-import {Character, CharacterData} from "@/types/character";
+import {Character} from "@/types/character";
 import client from "@/graphql/client";
 import {useRoute, useRouter} from "vue-router";
 import AvatarCharacter from "@/components/AvatarCharacter.vue";
@@ -78,23 +78,14 @@ onMounted(async () => {
   const variables = {
     id: route.params.id
   }
-  const data = ref<CharacterData>();
 
-  try {
-    data.value = await client.request(GET_CHARACTER_DETAILS, variables);
-  } catch (e) {
-    console.error(e)
-  }
+  await client.query({ query: GET_CHARACTER_DETAILS, variables}).then( result => {
+    currentCharacter.value = result.data.character
+    setTimeout(() => {
+      loading.value = false
+    }, 600)
+  });
 
-  if (data.value?.character) {
-    currentCharacter.value = data.value.character
-  }
-
-  console.log(data.value)
-
-  setTimeout(() => {
-    loading.value = false
-  }, 600)
 })
 </script>
 

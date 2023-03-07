@@ -1,5 +1,16 @@
-import { GraphQLClient } from 'graphql-request';
 
-const client = new GraphQLClient('https://rickandmortyapi.com/graphql');
+import { ApolloClient, createHttpLink, InMemoryCache } from '@apollo/client/core'
 
-export default client;
+
+const httpLink = createHttpLink({
+    uri: 'https://rickandmortyapi.com/graphql',
+})
+
+const cache = new InMemoryCache()
+
+const client = new ApolloClient({
+    link: httpLink,
+    cache,
+})
+
+export default client

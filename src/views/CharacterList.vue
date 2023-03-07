@@ -40,9 +40,12 @@ async function getCharacters(page: number = 1) {
       current: page,
     }
   }
-  const data: CharactersData = await client.request(GET_CHARACTERS_CARD_DATA, variables)
+  const data= ref<CharactersData>()
+  await client.query( {query: GET_CHARACTERS_CARD_DATA, variables}).then(res => {
+    data.value = res.data
+  })
 
-  const {info, results} = data.characters
+  const {info, results} = data.value.characters
 
   if (page === 1) {
     setTimeout(() => {
