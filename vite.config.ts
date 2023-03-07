@@ -7,7 +7,7 @@ export default defineConfig({
 
   build: {
     rollupOptions: {
-      external: ['graphql', 'graphql-tag']
+      external: ['']
     },
     chunkSizeWarningLimit: 1000000,
   },
