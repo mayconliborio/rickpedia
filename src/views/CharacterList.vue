@@ -27,6 +27,7 @@ onMounted(async () => {
 async function getCharacters(page: number = 1) {
   loading.value = true;
 
+  const data = ref<CharactersData>()
   const variables = {
     page,
     nameFilter: nameFilter.value
@@ -40,10 +41,16 @@ async function getCharacters(page: number = 1) {
       current: page,
     }
   }
-  const data= ref<CharactersData>()
-  await client.query( {query: GET_CHARACTERS_CARD_DATA, variables}).then(res => {
+
+  await client.query({query: GET_CHARACTERS_CARD_DATA, variables}).then(res => {
     data.value = res.data
   })
+      .catch(e => e)
+      .finally(() => {
+        setTimeout(() => {
+          loading.value = false
+        }, 600)
+      })
 
   const {info, results} = data.value.characters
 
@@ -105,7 +112,8 @@ async function showMoreCharacters() {
 
     <LoadingPortal v-if="loading && !infiniteScroll" class="suavization-animation"></LoadingPortal>
     <CardCharacterList v-else class="suavization-animation" :characters="characters"></CardCharacterList>
-    <div v-if="characters.length && characters.length > 0" style="display: flex; width: 100%; justify-content: flex-end; font-size: 14px; letter-spacing: 1.5px">
+    <div v-if="characters.length && characters.length > 0"
+         class="list-count">
       <span>
         Showing: <strong>{{ characters.length }}</strong> of <strong> {{ pagination.count }}</strong>
       </span>
@@ -152,5 +160,13 @@ async function showMoreCharacters() {
   font-size: 16px;
   line-height: 150%;
   color: rgba(0, 0, 0, 0.5);
+}
+
+.list-count {
+  display: flex;
+  width: 100%;
+  justify-content: flex-end;
+  font-size: 14px;
+  letter-spacing: 1.5px
 }
 </style>

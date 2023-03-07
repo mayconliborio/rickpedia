@@ -14,7 +14,7 @@
        style="margin: 30px 0; justify-content: center; align-items: center">
     <span class="not-found-message">No character found in this dimension!</span>
     <div class="portal-animation">
-      <img class="portal-loading" src="/src/assets/image/portal.png" width="400" alt="">
+      <img class="portal-loading" src="/src/assets/image/portal.png" alt="Portal da série de televisão Rick and Morty">
     </div>
     <Button style="margin: 0; width: 100%" label="Go to another dimension"
             @click="router.push({name: 'CharacterList'})"></Button>
@@ -81,11 +81,13 @@ onMounted(async () => {
 
   await client.query({ query: GET_CHARACTER_DETAILS, variables}).then( result => {
     currentCharacter.value = result.data.character
-    setTimeout(() => {
-      loading.value = false
-    }, 600)
-  });
-
+  })
+      .catch(e => e)
+      .finally(() => {
+        setTimeout(() => {
+          loading.value = false
+        }, 600)
+      })
 })
 </script>
 
