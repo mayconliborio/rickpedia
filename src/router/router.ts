@@ -7,6 +7,7 @@ const routes: RouteRecordRaw[] = [
     {
         path: '/',
         redirect: '/characters',
+        name: 'Home'
     },
     {
         path: '/characters',
@@ -25,7 +26,7 @@ const routes: RouteRecordRaw[] = [
     }
 ];
 
-const BASE_URL = `${import.meta.env.BASE_URL}/rickpedia`;
+const BASE_URL = `rickpedia`;
 
 const router = createRouter({
     history: createWebHistory(BASE_URL),
