@@ -10,7 +10,7 @@ jobs:
       - name: Criar variáveis de ambiente
         env:
           BASE_URL: ${{ secrets.BASE_URL }}
-        run: echo "BASE_URL=${{env.BASE_URL}}" > public_html/.env
+        run: echo "BASE_URL=${{env.BASE_URL}}" > .env
 
   build:
     runs-on: ubuntu-latest
