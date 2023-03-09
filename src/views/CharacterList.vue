@@ -118,11 +118,10 @@ async function showMoreCharacters() {
         Showing: <strong>{{ characters.length }}</strong> of <strong> {{ pagination.count }}</strong>
       </span>
     </div>
-    <LoadingInfinite v-if="infiniteScroll" class="suavization-animation" style="margin-top: 10px;"/>
+    <LoadingInfinite v-if="infiniteScroll" class="suavization-animation loading-more"/>
     <Button
         v-if="showMoreLoading && !infiniteScroll"
-        class="suavization-animation"
-        style="margin-top: 10px"
+        class="suavization-animation show-more-button"
         label="Show more"
         @click="showMoreCharacters()"
     />
@@ -168,5 +167,9 @@ async function showMoreCharacters() {
   justify-content: flex-end;
   font-size: 14px;
   letter-spacing: 1.5px
+}
+
+.show-more-button, .loading-more {
+  margin-top: 10px;
 }
 </style>

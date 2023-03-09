@@ -8,7 +8,7 @@ const router = useRouter()
   <div class="background suavization-animation">
     <div class="navbar">
       <div class="navbar-content">
-        <a class="navbar-item" href=""><img style="padding: 6px 0;" src="/src/assets/icons/rickpedia.svg"
+        <a class="navbar-item" href="/"><img class="main-icon" src="/src/assets/icons/rickpedia.svg"
                                                           alt="Icone Rickepedia"></a>
         <a class="navbar-item" href="#" @click="router.push({name: 'CharacterList'})">Characters</a>
       </div>
@@ -29,6 +29,10 @@ const router = useRouter()
 p {
   margin: 0 !important;
   padding: 0;
+}
+
+.main-icon {
+  padding: 6px 0;
 }
 
 .background {
