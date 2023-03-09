@@ -2,7 +2,7 @@
   <div class="column page-not-found">
     <h1 class="header">Dimension Not Found - Error 404</h1>
     <p class="description">The dimension you are looking not exists.</p>
-    <div>
+    <div class="box-img">
       <img class="not-found-image" src="/src/assets/image/rick-portal.png" alt="Portal da série de televisão Rick and Morty">
     </div>
     <Button class="redirect-button" label="Go to another dimension"
