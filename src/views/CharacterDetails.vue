@@ -1,32 +1,33 @@
 <template>
   <LoadingPortal v-if="loading"></LoadingPortal>
+
   <div v-if="!loading && currentCharacter" class="character-detail suavization-animation">
     <div class="go-back-box">
-      <Button flat label="GO BACK" @click="router.back()"/>
+      <Button flat label="GO BACK" @click="router.back()" />
     </div>
-    <AvatarCharacter :image="currentCharacter.image" :name="currentCharacter.name"/>
+    <AvatarCharacter :image="currentCharacter.image" :name="currentCharacter.name" />
     <div class="row">
-      <InfoList name="Informations" :items="informationList"/>
-      <InfoList name="Episodes" scrollable :items="episodeList"/>
+      <InfoList name="Informations" :items="informationList" />
+      <InfoList name="Episodes" scrollable :items="episodeList" />
     </div>
   </div>
-  <div v-if="!loading && !currentCharacter" class="column"
-       style="margin: 30px 0; justify-content: center; align-items: center">
+
+  <div v-if="!loading && !currentCharacter" class="column not-found-box">
     <span class="not-found-message">No character found in this dimension!</span>
     <div class="portal-animation">
       <img class="portal-loading" src="/src/assets/image/portal.png" alt="Portal da série de televisão Rick and Morty">
     </div>
-    <Button style="margin: 0; width: 100%" label="Go to another dimension"
-            @click="router.push({name: 'CharacterList'})"></Button>
+    <Button class="not-found-button" label="Go to another dimension"
+      @click="router.push({ name: 'CharacterList' })"></Button>
   </div>
 </template>
 
 <script setup lang="ts">
-import {GET_CHARACTER_DETAILS} from "@/graphql/queries/characters";
-import {computed, onMounted, ref} from "vue";
-import {Character} from "@/types/character";
+import { GET_CHARACTER_DETAILS } from "@/graphql/queries/characters";
+import { computed, onMounted, ref } from "vue";
+import { Character } from "@/types/character";
 import client from "@/graphql/client";
-import {useRoute, useRouter} from "vue-router";
+import { useRoute, useRouter } from "vue-router";
 import AvatarCharacter from "@/components/AvatarCharacter.vue";
 import InfoList from "@/components/InfoList.vue";
 import LoadingPortal from "@/components/LoadingPortal.vue";
@@ -38,7 +39,7 @@ const currentCharacter = ref<Character>(null)
 const episodeList = computed(() => {
   if (currentCharacter.value) {
     return currentCharacter.value.episode.map((ep) => {
-      return {title: ep.episode, subtitle: ep.name, date: ep.air_date}
+      return { title: ep.episode, subtitle: ep.name, date: ep.air_date }
     })
   }
 
@@ -79,15 +80,15 @@ onMounted(async () => {
     id: route.params.id
   }
 
-  await client.query({ query: GET_CHARACTER_DETAILS, variables}).then( result => {
+  await client.query({ query: GET_CHARACTER_DETAILS, variables }).then(result => {
     currentCharacter.value = result.data.character
   })
-      .catch(e => e)
-      .finally(() => {
-        setTimeout(() => {
-          loading.value = false
-        }, 600)
-      })
+    .catch(e => e)
+    .finally(() => {
+      setTimeout(() => {
+        loading.value = false
+      }, 600)
+    })
 })
 </script>
 
@@ -132,9 +133,21 @@ onMounted(async () => {
   from {
     transform: rotate(-60deg);
   }
+
   to {
     transform: rotate(300deg);
   }
+}
+
+.not-found-box {
+  margin: 30px 0;
+  max-width: 100%;
+  justify-content: center;
+  align-items: center;
+}
+
+.not-found-button {
+  margin: 0; width: 100%
 }
 
 .go-back-box {
@@ -146,5 +159,4 @@ onMounted(async () => {
   font-weight: 600;
   font-size: 18px;
   line-height: 21px;
-}
-</style>
+}</style>
