@@ -45,5 +45,9 @@ http://localhost:5174
 ## Contribuindo
 Contribuições são sempre bem-vindas! Sinta-se à vontade para abrir uma issue caso encontre algum bug ou tenha alguma sugestão de melhoria. Caso queira contribuir diretamente com o código, abra um Pull Request e irei avaliar a sua contribuição.
 
+
+## Créditos
+Este projeto foi desenvolvido utilizando [este protópio no Figma](https://www.figma.com/community/file/979477099633946456) disponibilizado pelo [Francisco Santos](https://github.com/santosfrancisco).
+
 ## Licença
 Este projeto está licenciado sob a MIT License - veja o arquivo LICENSE para mais detalhes.
